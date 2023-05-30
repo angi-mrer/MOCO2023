@@ -61,15 +61,14 @@ class LogSignUser(email: String, password: String): User(email, password) {
     }
 }
 interface Item {
-
     // erstmal var, weil wir uns eine Bearbeitungsfunktion offen halten
-
     var type: Type
     var title: String
     var desc: String
     var picture: Image?
     var loc: String
     var user: User
+    var itemId: String?
 }
 
 class ItemModel(override var type: Type,
@@ -77,7 +76,9 @@ class ItemModel(override var type: Type,
                 override var desc: String,
                 override var picture: Image?,
                 override var loc: String,
-                override var user: User): Item {}
+                override var user: User,
+                override itemId: String?
+                ): Item {}
 
 //Item ID geben und der DB hinzufügen. ID wird returned
 fun addItem(item: Item): String {
@@ -86,15 +87,14 @@ fun addItem(item: Item): String {
 
     val newItemRef: DatabaseReference = itemsRef.push() // Generiert eine eindeutige ID für das neue Item
     newItemRef.setValue(item) // Speichert das Item unter der generierten ID in der Datenbank
-
+    var itemId = newItemRef //ID lokal speichern um Item löschen zu können
     return newItemRef.key ?: "" // Gibt die generierte ID des neuen Items zurück
 }
 
 //löscht die Items anhand der in der Funktion addItem erstellten ID/ref
-fun deleteItem(itemId: String) {
+fun deleteItem(itemId: String?) {
         val database: FirebaseDatabase = FirebaseDatabase.getInstance()
         val itemsRef: DatabaseReference = database.getReference("items")
-
         val itemRef: DatabaseReference = itemsRef.child(itemId)
         itemRef.removeValue()
 }
@@ -112,7 +112,11 @@ fun main()  {
      */
 
     val user = LogSignUser("abc@gmail.de", "asdfghj123")
-    val item = ItemModel(Type.GESUCHT, "hdjashdjkashd", "123", null, "GM", user)
+    val banane = ItemModel(Type.GESUCHT, "hdjashdjkashd", "123", null, "GM", user)
+
+    addItem(banane)
+    deleteItem(banane.itemId)
+
 
 
  //   println(addItem(item))
