@@ -102,7 +102,6 @@ fun deleteItem(itemId: String?) {
 
 // Testing if everything works as intended :)
 fun main()  {
-
     /*
     val testlogin = LogSignUser("mjungilligens@gmail.com", "asdfghjkl1")
     if (testlogin.isEmailValid()) println("Email is valid") // funktioniert noch nicht
