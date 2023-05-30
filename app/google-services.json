@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "601022461431",
+    "firebase_url": "https://goldmine-5bb06-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "goldmine-5bb06",
+    "storage_bucket": "goldmine-5bb06.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:601022461431:android:02c3a5806d33bef5136af2",
+        "android_client_info": {
+          "package_name": "com.example.mocogm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "601022461431-o001fkqnrp9tekpfm7aj0ug6dr3g0a52.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmI1FGTal9oD6h92dXle7tuLIGkfJcCXE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "601022461431-o001fkqnrp9tekpfm7aj0ug6dr3g0a52.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
